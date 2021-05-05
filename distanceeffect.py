@@ -1,12 +1,4 @@
-#! /usr/bin/env python
-# Time-stamp: <2021-03-24 08:15:54 christophe@pallier.org>
-"""This is a simple decision experiment.
-
-At each trial, a number between 0 and 9 is presented at the center of the
-screen and the participant must press the key 'f' if the number is even, 'j' if
-it is odd.
-
-"""
+#Kira Van Voorhees
 
 import random
 from random import sample
@@ -22,10 +14,8 @@ LESSTHAN_KEY = misc.constants.K_f
 GREATERTHAN_KEY = misc.constants.K_j
 
 
-exp = design.Experiment(name="Parity Decision", text_size=40)
+exp = design.Experiment(name="Distance Effect", text_size=40)
 control.initialize(exp)
-
-cue = stimuli.FixCross(size=(50, 50), line_width=4)
 blankscreen = stimuli.BlankScreen()
 instructions = stimuli.TextScreen("Instructions",
     f"""When you see a number, your task is to decide, as quickly as possible, whether it is greater than or less than 55.
@@ -37,7 +27,6 @@ instructions = stimuli.TextScreen("Instructions",
     There will be {len(TARGETS)} trials in total.
 
     Press the space bar to start.""")
-
 instructions_practice= stimuli.TextScreen("Instructions",
     f"""When you see a number, your task is to decide, as quickly as possible, whether it is greater than or less than 55.
 
@@ -48,7 +37,6 @@ instructions_practice= stimuli.TextScreen("Instructions",
     First, you will begin a short practice session with feedback.
 
     Press the space bar to start practicing.""")
-
 instructions_start_experiment= stimuli.TextScreen("Instructions",
     f"""Congrats! You have finished the practice session. As a reminder:
     When you see a number, your task is to decide, as quickly as possible, whether it is greater than or less than 55.
@@ -59,19 +47,17 @@ instructions_start_experiment= stimuli.TextScreen("Instructions",
 
     Press the space bar to start the experiment.""")
 
-
-
 # prepare the stimuli
 
 practice = []
 for number in TARGETS_PRACTICE:
     p = design.Trial()
+    p.add_stimulus(stimuli.TextLine(str(number)))
     p.set_factor('number', number)
     p.set_factor('is_greater', number > 55 )
-    practice.append((number, stimuli.TextLine(str(number))))
+    practice.append(p)
 
 
-print(practice) 
 negative_feedback = stimuli.Audio(BUZZER)
 
 trials = []
@@ -86,13 +72,13 @@ exp.keyboard.wait()
 instructions_practice.present()
 exp.keyboard.wait()
 
-for p in practice:
+for example in practice:
     blankscreen.present()
     exp.clock.wait(2000)
-    p[1].present()
-    key, rt = exp.keyboard.wait(LESSTHAN_RESPONSE+ GREATERTHAN_RESPONSE, duration=MAX_RESPONSE_DELAY)
-    is_correct_answer = (p.get_factor('is_greater') and key == GREATERTHAN_KEY) or \
-                        (not p.get_factor('is_greater') and key ==  LESSTHAN_KEY)
+    example.stimuli[0].present()
+    key, rt = exp.keyboard.wait([LESSTHAN_KEY, GREATERTHAN_KEY], duration=MAX_RESPONSE_DELAY)
+    is_correct_answer = (example.get_factor('is_greater') and key == GREATERTHAN_KEY) or \
+                        (not example.get_factor('is_greater') and key ==  LESSTHAN_KEY)
     if not is_correct_answer:
             negative_feedback.play()
 
