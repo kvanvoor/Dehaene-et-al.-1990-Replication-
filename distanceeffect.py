@@ -10,12 +10,14 @@ it is odd.
 
 import random
 from random import sample
-from expyriment import design, control, stimuli
+from expyriment import design, control, stimuli, misc
 
 MAX_RESPONSE_DELAY = 2000
 TARGETS= random.sample(list(range(100)), 100)
+TARGETS_PRACTICE = random.sample(list(range(100)), 10)
 LESSTHAN_RESPONSE = 'f'
 GREATERTHAN_RESPONSE = 'j'
+BUZZER = 'wrong-answer.ogg'
 
 
 exp = design.Experiment(name="Parity Decision", text_size=40)
@@ -34,23 +36,68 @@ instructions = stimuli.TextScreen("Instructions",
 
     Press the space bar to start.""")
 
+instructions_practice= stimuli.TextScreen("Instructions",
+    f"""When you see a number, your task is to decide, as quickly as possible, whether it is greater than or less than 55.
+
+    if it is less than 55, press '{LESSTHAN_RESPONSE}'
+
+    if it is greater than 55, press '{GREATERTHAN_RESPONSE}'
+
+    First, you will begin a short practice session with feedback.
+
+    Press the space bar to start practicing.""")
+
+instructions_start_experiment= stimuli.TextScreen("Instructions",
+    f"""Congrats! You have finished the practice session. As a reminder:
+    When you see a number, your task is to decide, as quickly as possible, whether it is greater than or less than 55.
+
+    if it is less than 55, press '{LESSTHAN_RESPONSE}'
+
+    if it is greater than 55, press '{GREATERTHAN_RESPONSE}'
+
+    Press the space bar to start the experiment.""")
+
+
+
 # prepare the stimuli
+
+practice = []
+for number in TARGETS_PRACTICE:
+    p = design.Trial()
+    practice.append((number, stimuli.TextLine(str(number))))
+    p.set_factor('number', number)
+    p.set_factor('is_greater', number > 55 )
+
+negative_feedback = stimuli.Audio(BUZZER)
+
 trials = []
 for number in TARGETS:
     trials.append((number, stimuli.TextLine(str(number))))
 
-
-exp.add_data_variable_names(['number', 'respkey', 'RT'])
+exp.add_data_variable_names(['number', 'respkey', 'RT', 'is_correct'])
 
 control.start(skip_ready_screen=True)
 instructions.present()
 exp.keyboard.wait()
+instructions_practice.present()
+exp.keyboard.wait()
+
+for p in practice:
+    blankscreen.present()
+    exp.clock.wait(2000)
+    p[1].present()
+    key, rt = exp.keyboard.wait(LESSTHAN_RESPONSE+ GREATERTHAN_RESPONSE, duration=MAX_RESPONSE_DELAY)
+    is_correct_answer = (practice.get_factor('is_greater') and key == misc.constants.K_f) or \
+                        (not practice.get_factor('is_greater') and key ==  misc.constants.K_j)
+    if not is_correct_answer:
+            negative_feedback.play()
+
+instructions_start_experiment.present()
+exp.keyboard.wait()
 
 for t in trials:
     blankscreen.present()
-    exp.clock.wait(1000)
-    cue.present()
-    exp.clock.wait(500)
+    exp.clock.wait(2000)
     t[1].present()
     key, rt = exp.keyboard.wait(LESSTHAN_RESPONSE+ GREATERTHAN_RESPONSE, duration=MAX_RESPONSE_DELAY)
     exp.data.add([t[0],  key, rt])
