@@ -18,6 +18,8 @@ TARGETS_PRACTICE = random.sample(list(range(100)), 10)
 LESSTHAN_RESPONSE = 'f'
 GREATERTHAN_RESPONSE = 'j'
 BUZZER = 'wrong-answer.ogg'
+LESSTHAN_KEY = misc.constants.K_f
+GREATERTHAN_KEY = misc.constants.K_j
 
 
 exp = design.Experiment(name="Parity Decision", text_size=40)
@@ -64,10 +66,12 @@ instructions_start_experiment= stimuli.TextScreen("Instructions",
 practice = []
 for number in TARGETS_PRACTICE:
     p = design.Trial()
-    practice.append((number, stimuli.TextLine(str(number))))
     p.set_factor('number', number)
     p.set_factor('is_greater', number > 55 )
+    practice.append((number, stimuli.TextLine(str(number))))
 
+
+print(practice) 
 negative_feedback = stimuli.Audio(BUZZER)
 
 trials = []
@@ -87,8 +91,8 @@ for p in practice:
     exp.clock.wait(2000)
     p[1].present()
     key, rt = exp.keyboard.wait(LESSTHAN_RESPONSE+ GREATERTHAN_RESPONSE, duration=MAX_RESPONSE_DELAY)
-    is_correct_answer = (practice.get_factor('is_greater') and key == misc.constants.K_f) or \
-                        (not practice.get_factor('is_greater') and key ==  misc.constants.K_j)
+    is_correct_answer = (p.get_factor('is_greater') and key == GREATERTHAN_KEY) or \
+                        (not p.get_factor('is_greater') and key ==  LESSTHAN_KEY)
     if not is_correct_answer:
             negative_feedback.play()
 
