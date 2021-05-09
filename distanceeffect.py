@@ -51,33 +51,41 @@ instructions_start_experiment= stimuli.TextScreen("Instructions",
 
     Press the space bar to start the experiment.""")
 
-# prepare the stimuli
+# prepare the practice stimuli
 
 practice = []
-#with open("Stimuliprac_PCBS.csv", "r") as f:
-    #reader = reader(f)
-    #targets = list(reader)
 
-
-targets= []
-with open("df1_1.csv") as csvfile:
+targets_prac= []
+with open("Stimuliprac_PCBS.csv") as csvfile:
     reader = csv.reader(csvfile, quoting=csv.QUOTE_NONNUMERIC) # change contents to floats
     for row in reader: # each row is a list
-        targets.append(row) 
+        targets_prac.append(row) 
 
-for number in targets:
+for number in targets_prac:
         p = design.Trial()
         p.add_stimulus(stimuli.TextLine(str(math.trunc(number[0]))))
         p.set_factor('number', number[0])
         p.set_factor('is_greater', number[0] > 55 )
         practice.append(p)
 
-
 negative_feedback = stimuli.Audio(BUZZER)
 
+#prepare the experimental stimuli
 trials = []
-for number in TARGETS:
-    trials.append((number, stimuli.TextLine(str(number))))
+targets_exp= []
+with open("df1_1.csv") as csvfile:
+    reader = csv.reader(csvfile, quoting=csv.QUOTE_NONNUMERIC) # change contents to floats
+    for row in reader: # each row is a list
+        targets_exp.append(row) 
+
+for number in targets_exp:
+        e = design.Trial()
+        e.add_stimulus(stimuli.TextLine(str(math.trunc(number[0]))))
+        e.set_factor('number', number[0])
+        e.set_factor('is_greater', number[0] > 55 )
+        trials.append(e)
+
+
 
 exp.add_data_variable_names(['number', 'respkey', 'RT', 'is_correct'])
 
@@ -100,12 +108,12 @@ for example in practice:
 instructions_start_experiment.present()
 exp.keyboard.wait()
 
-for t in trials:
+for example in trials:
     blankscreen.present()
     exp.clock.wait(2000)
-    t[1].present()
-    key, rt = exp.keyboard.wait(LESSTHAN_RESPONSE+ GREATERTHAN_RESPONSE, duration=MAX_RESPONSE_DELAY)
-    exp.data.add([t[0],  key, rt])
+    example.stimuli[0].present()
+    key, rt = exp.keyboard.wait([LESSTHAN_KEY, GREATERTHAN_KEY], duration=MAX_RESPONSE_DELAY)
+
 
 control.end()
 
