@@ -1,6 +1,10 @@
 #Kira Van Voorhees
+#
 
 import random
+import math
+import csv
+from csv import reader
 from random import sample
 from expyriment import design, control, stimuli, misc
 
@@ -9,9 +13,9 @@ TARGETS= random.sample(list(range(100)), 100)
 TARGETS_PRACTICE = random.sample(list(range(100)), 10)
 LESSTHAN_RESPONSE = 'f'
 GREATERTHAN_RESPONSE = 'j'
-BUZZER = 'wrong-answer.ogg'
 LESSTHAN_KEY = misc.constants.K_f
 GREATERTHAN_KEY = misc.constants.K_j
+BUZZER = 'wrong-answer.ogg'
 
 
 exp = design.Experiment(name="Distance Effect", text_size=40)
@@ -50,12 +54,23 @@ instructions_start_experiment= stimuli.TextScreen("Instructions",
 # prepare the stimuli
 
 practice = []
-for number in TARGETS_PRACTICE:
-    p = design.Trial()
-    p.add_stimulus(stimuli.TextLine(str(number)))
-    p.set_factor('number', number)
-    p.set_factor('is_greater', number > 55 )
-    practice.append(p)
+#with open("Stimuliprac_PCBS.csv", "r") as f:
+    #reader = reader(f)
+    #targets = list(reader)
+
+
+targets= []
+with open("df1_1.csv") as csvfile:
+    reader = csv.reader(csvfile, quoting=csv.QUOTE_NONNUMERIC) # change contents to floats
+    for row in reader: # each row is a list
+        targets.append(row) 
+
+for number in targets:
+        p = design.Trial()
+        p.add_stimulus(stimuli.TextLine(str(math.trunc(number[0]))))
+        p.set_factor('number', number[0])
+        p.set_factor('is_greater', number[0] > 55 )
+        practice.append(p)
 
 
 negative_feedback = stimuli.Audio(BUZZER)
