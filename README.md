@@ -21,11 +21,14 @@ As in Dehaene et al. (1990), we were concerned with measuring the response times
 - [Running the experiment](#running-the-experiment)
 
 # Preparation of the stimuli
-To generate a list of numbers we use a simple [R code](https://github.com/kvanvoor/PCBS_Project/blob/main/Dehaene%20et%20al.%20-%201990%20-%20Is%20numerical%20comparison%20digital%20Analogical%20and%20sy.pdf) and exported the data frame into a csv file. Again, because we wanted to create an experiment as close as possible to the orginal, we followed the same constraints at Deheane et al.. All numbers between 11 and 99 (except 55) were presented. Numbers between 41 and 69 were included 4 times, whereas as those outside of this range were included only twice. See the simple R code used 
-# Creating-the-list-of-trials
+To generate a list of numbers we use a simple [R code](https://github.com/kvanvoor/PCBS_Project/blob/main/stimuli_list_generator.R) and exported the data frame into a csv file. Again, because we wanted to create an experiment as close as possible to the orginal, we followed the same constraints at Deheane et al. All numbers between 11 and 99 (except 55) were entered. Numbers between 41 and 69 were included 4 times, whereas as those outside of this range were included only twice.
+
+Next, we randomly shuffled the list in excel. We then manually ensured that the list adhered to the parameters described above, used by Dehaene et al.
+
+We then created a second list that reversed the order of the first, as Dehaene et al. did.
 
 # Running-the-experiment
-
+We included a practice session with ten stimuli that includes a feedback via a buzzer. The practice session is followed by the experimental session with the list determined by the parity of subject number.
 
 References
 ----------
