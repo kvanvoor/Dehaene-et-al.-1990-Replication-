@@ -19,6 +19,8 @@ As in Dehaene et al. (1990), we were concerned with measuring the response times
 - [Preparation of the stimuli](#preparation-of-the-stimuli)
 - [Creating the list of trials](#creating-the-list-of-trials)
 - [Running the experiment](#running-the-experiment)
+- [My python experience & what I learned](#My python experience & what I learned)
+- [To Do](#To Do)
 
 # Preparation of the stimuli
 To generate a list of numbers we use a simple [R code](https://github.com/kvanvoor/PCBS_Project/blob/main/stimuli_list_generator.R) and exported the data frame into a csv file. Again, because we wanted to create an experiment as close as possible to the orginal, we followed the same constraints at Deheane et al. All numbers between 11 and 99 (except 55) were entered. Numbers between 41 and 69 were included 4 times, whereas as those outside of this range were included only twice.
@@ -30,7 +32,20 @@ We then created a second list that reversed the order of the first, as Dehaene e
 # Running-the-experiment
 We included a practice session with ten stimuli that includes a feedback via a buzzer. The practice session is followed by the experimental session with the list determined by the parity of subject number.
 
+
+#My python experience & what I learned
+My previous coding experience was limited almost exclusively to R. I am relatively proficient in basic R plots and statistical analyses from past statistics courses. I was briefly exposed to python through the DataCamp online course last semester, but retained very little knowledge.
+
+Although I was already familiar with the problem-solving thinking involved in coding through my experience in R, I believe this general skill was strengthened through this course. I also think my overall comfortability with the syntax and language of python improved a lot. I am glad I was encouraged to take this time to learn a bit of the syntax, because coming from an R background, it does feel rather unnatural at first. The notion of clean code and implementing efficient functions was also a useful tool to acquire and apply to python and my R code in the future. 
+
+I found learning the expyriment module in particular rather difficult. I relied heavily on the examples provided on github, but I was shocked to find very few resources online specially discussing this module. This made it hard to problem solve on my own. In the future, I think it would have been very helpful to be more explicit in the various parts of expyriment and how it works together, the levels of "Design", "Block", "Trial." As a novice coder it was very hard to navigate on my own. 
+
+#To Do
+
+
+
 References
 ----------
 Dehaene, S., Dupoux, E., & Mehler, J. (1990). Is numerical comparison digital? Analogical and symbolic effects in two-digit number comparison. Journal of experimental Psychology: Human Perception and performance, 16(3), 626.
+
 
