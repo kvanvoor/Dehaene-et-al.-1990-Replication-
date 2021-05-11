@@ -1,5 +1,8 @@
-# PCBS Project
-Dehaene-et-al.-1990-Replication-
+PCBS Project May 2021
+=====================
+Dehaene et al.,1990 : Experiment 1
+-----------------------------------
+
 #### Distance effect on two-number comparison tests
 #### Measuring RTs for number comparison
 
@@ -7,3 +10,7 @@ The experiment presents a random number between 1 and 99, and asks the subject t
 
 Do you replicate the distance effect reported by Dehaene, S., Dupoux, E., & Mehler, J. (1990) in “Is numerical comparison digital? Analogical and symbolic effects in two-digit number comparison.” Journal of Experimental Psychology: Human Perception and Performance, 16, 626–641.?
 
+
+
+References
+==========
