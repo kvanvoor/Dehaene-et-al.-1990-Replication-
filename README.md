@@ -14,13 +14,6 @@ The stimuli were two pseudo-randomized lists which we created using R and manual
 
 As in Dehaene et al. (1990), we were concerned with measuring the response times of the participant during each trial. 
 
-**Table of Contents**
-
-- [Preparation of the stimuli](#preparation-of-the-stimuli)
-- [Creating the list of trials](#creating-the-list-of-trials)
-- [Running the experiment](#running-the-experiment)
-- [My python experience & what I learned](#My python experience & what I learned)
-- [To Do](#To Do)
 
 # Preparation of the stimuli
 To generate a list of numbers we use a simple [R code](https://github.com/kvanvoor/PCBS_Project/blob/main/stimuli_list_generator.R) and exported the data frame into a csv file. Again, because we wanted to create an experiment as close as possible to the orginal, we followed the same constraints at Deheane et al. All numbers between 11 and 99 (except 55) were entered. Numbers between 41 and 69 were included 4 times, whereas as those outside of this range were included only twice.
