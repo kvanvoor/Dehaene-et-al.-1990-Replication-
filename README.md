@@ -29,18 +29,18 @@ Next, we randomly shuffled the list in excel. We then manually ensured that the 
 
 We then created a second list that reversed the order of the first, as Dehaene et al. did.
 
-# Running-the-experiment
+# Running the experiment
 We included a practice session with ten stimuli that includes a feedback via a buzzer. The practice session is followed by the experimental session with the list determined by the parity of subject number.
 
 
-#My python experience & what I learned
+# My python experience & what I learned
 My previous coding experience was limited almost exclusively to R. I am relatively proficient in basic R plots and statistical analyses from past statistics courses. I was briefly exposed to python through the DataCamp online course last semester, but retained very little knowledge.
 
 Although I was already familiar with the problem-solving thinking involved in coding through my experience in R, I believe this general skill was strengthened through this course. I also think my overall comfortability with the syntax and language of python improved a lot. I am glad I was encouraged to take this time to learn a bit of the syntax, because coming from an R background, it does feel rather unnatural at first. The notion of clean code and implementing efficient functions was also a useful tool to acquire and apply to python and my R code in the future. 
 
 I found learning the expyriment module in particular rather difficult. I relied heavily on the examples provided on github, but I was shocked to find very few resources online specially discussing this module. This made it hard to problem solve on my own. In the future, I think it would have been very helpful to be more explicit in the various parts of expyriment and how it works together, the levels of "Design", "Block", "Trial." As a novice coder it was very hard to navigate on my own. 
 
-#To Do
+# To Do
 
 
 
