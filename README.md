@@ -21,10 +21,10 @@ As in Dehaene et al. (1990), we were concerned with measuring the response times
 - [Running the experiment](#running-the-experiment)
 
 # Preparation of the stimuli
+To generate a list of numbers we use a simple [R code](https://github.com/kvanvoor/PCBS_Project/blob/main/Dehaene%20et%20al.%20-%201990%20-%20Is%20numerical%20comparison%20digital%20Analogical%20and%20sy.pdf) and exported the data frame into a csv file. Again, because we wanted to create an experiment as close as possible to the orginal, we followed the same constraints at Deheane et al.. All numbers between 11 and 99 (except 55) were presented. Numbers between 41 and 69 were included 4 times, whereas as those outside of this range were included only twice. See the simple R code used 
+# Creating-the-list-of-trials
 
-## Creating-the-list-of-trials
-
-## Running-the-experiment
+# Running-the-experiment
 
 
 References
