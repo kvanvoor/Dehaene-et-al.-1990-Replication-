@@ -20,11 +20,11 @@ As in Dehaene et al. (1990), we were concerned with measuring the response times
 - [Creating the list of trials](#creating-the-list-of-trials)
 - [Running the experiment](#running-the-experiment)
 
-#Preparation of the stimuli
+# Preparation of the stimuli
 
-##creating-the-list-of-trials
+## Creating-the-list-of-trials
 
-##running-the-experiment
+## Running-the-experiment
 
 
 References
