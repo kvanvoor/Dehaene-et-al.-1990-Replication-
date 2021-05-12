@@ -119,8 +119,8 @@ if exp.subject % 2 == 0:
         key, rt = exp.keyboard.wait([LESSTHAN_KEY, GREATERTHAN_KEY], duration=MAX_RESPONSE_DELAY)
         is_correct_answer=(example.get_factor('is_greater') and key == GREATERTHAN_KEY) or \
                     (not example.get_factor('is_greater') and key ==  LESSTHAN_KEY)
-        exp.data.add([example, key,
-                  rt, is_correct_answer])
+        exp.data.add([example.get_factor('number'), key,rt, is_correct_answer])
+        exp.data.save()
 else:
     for example in trials_exp_list2:
         blankscreen.present()
@@ -129,8 +129,9 @@ else:
         key, rt = exp.keyboard.wait([LESSTHAN_KEY, GREATERTHAN_KEY], duration=MAX_RESPONSE_DELAY)
         is_correct_answer=(example.get_factor('is_greater') and key == GREATERTHAN_KEY) or \
                     (not example.get_factor('is_greater') and key ==  LESSTHAN_KEY)
-        exp.data.add([example, key,
+        exp.data.add([example.get_factor('number'), key,
                   rt, is_correct_answer])
+        exp.data.save()
 
 control.end()
 
