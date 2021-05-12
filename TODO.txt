@@ -1,8 +1,0 @@
-
-
-
-(1) Implement two different stimuli lists for half of the participants
-	-Because I wanted to replicate the Experiment 1 of the Dehaene et al., I generated two pseudo-randomized lists with the parameters Dehaene et al.: no more than three numbers in a row greater than 55 or less than 55, and no two consecutive stimuli of the same number.
-
-
-(2) Generate reuslts that indicate 
