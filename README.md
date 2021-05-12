@@ -28,7 +28,7 @@ We included a practice session with ten stimuli that includes a feedback via a b
 
 # Results & Analysis
 
-We generated a plot inspired by the Figure 1 in the Dehaen et al. (1990) paper. We used the R function to process all the data directly in R, since we were more familiar with R data analyses and had limited time. We then used the tidyr packages to clean the data, which fortunately were already very readable and then created a graphic of boxplots of RTs for each number stimuli.
+We completed all basic analyses in R using the code found [here](https://github.com/kvanvoor/PCBS_Project/blob/main/Data_Analysis_PCBS_Project.R). We set out to generate a simply plot inspired by the Figure 1 in the Dehaene et al. (1990) paper, Recall that our aim was to complete a true replication of their Experiment 1. We used the R function ````read.expyriment.data```` to process all the data directly in R, since we were more familiar with R data analyses and had limited time. We then used the tidyr packages to clean the data. We then created a graphic of boxplots of RTs for each number stimuli.
 
 ![Fig. 1](RplotPCBS_Project.png)
 
