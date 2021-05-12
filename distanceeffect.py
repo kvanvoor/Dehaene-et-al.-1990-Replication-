@@ -51,7 +51,7 @@ instructions_start_experiment= stimuli.TextScreen("Instructions",
 practice = []
 
 targets_prac= []
-with open("Stimuliprac_PCBS.csv") as csvfile:
+with open("stimuli_prac_list.csv") as csvfile:
     reader = csv.reader(csvfile, quoting=csv.QUOTE_NONNUMERIC) # change contents to floats
     for row in reader: # each row is a list
         targets_prac.append(row) 
@@ -112,7 +112,7 @@ for example in practice:
 instructions_start_experiment.present()
 exp.keyboard.wait()
 if exp.subject % 2 == 0:
-    for example in trials_exp_list2:
+    for example in trials_exp_list1:
         blankscreen.present()
         exp.clock.wait(2000)
         example.stimuli[0].present()
