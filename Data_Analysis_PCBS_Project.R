@@ -1,6 +1,7 @@
 ##Data analyses with no pre-processing in Python
 #Using function from Expyriment to import into R
 library(tidyverse)
+
 read.expyriment.data = function(folder, filename_pattern) 
 {
   pattern = paste("^", filename_pattern, ".*\\.xpd", sep="") 
@@ -47,7 +48,8 @@ data1 <- mydata %>%
   filter(is_correct =="True") %>%
   select(number, RT)
 
-
+#boxplot creation
 ggplot(data1,aes(number, y = RT)) +
   geom_boxplot(aes(group = number))+
   geom_vline(xintercept= 55, color="red")
+  
