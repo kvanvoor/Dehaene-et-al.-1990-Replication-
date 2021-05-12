@@ -19,14 +19,16 @@ To generate a list of numbers we use a simple [R code](https://github.com/kvanvo
 
 Next, we randomly shuffled the list in excel. We then manually ensured that the list adhered to the parameters described above, used by Dehaene et al.
 
-We then created a second trial list that reversed the order of the first, as Dehaene et al. did. Half the particpants would recieve the list normally or in reversed order. Every participant received the same practice stimuli, which we manually selected and entered in to an excel sheet. 
+We then created a second trial list that reversed the order of the first, as Dehaene et al. did. Half the particpants would recieve the list normally or in reversed order. 
+
+Every participant received the same practice stimuli, which we manually selected and entered in to an excel sheet. 
 
 ## Running the experiment
 
 We included a practice session with ten stimuli that includes a feedback via a buzzer. The practice session is followed by the experimental session with the list order determined by the parity of subject number. The experiment can be run by simply entering "python distanceeffect.py" in to your terminal.
 
 ## Results & analysis
-After each run of ````distanceeffect.py````, a file (with extension .xpd) was created in the subfolder named data. We completed all basic analyses in R using ````Data_Analysis_PCBS_Project.R```` found [here](https://github.com/kvanvoor/PCBS_Project/blob/main/Data_Analysis_PCBS_Project.R).
+After each run of ````distanceeffect.py````, a file (with extension ````.xpd````) was created in the subfolder named data. We completed all basic analyses in R using ````Data_Analysis_PCBS_Project.R```` found [here](https://github.com/kvanvoor/PCBS_Project/blob/main/Data_Analysis_PCBS_Project.R).
 
 We set out to generate a simple plot inspired by the Figure 1 in the Dehaene et al. (1990) paper. Recall that our aim was to complete a true replication of their Experiment 1. We used the R function ````read.expyriment.data```` to process all the data directly in R, since we were more familiar with R and had limited time. We then used the tidyr package to clean the data by removing incorrect answers labelled True or False in the ````is_correct````. We created a ````ggplot```` of boxplots of RTs for each number stimuli.
 
