@@ -9,8 +9,6 @@ from random import sample
 from expyriment import design, control, stimuli, misc
 
 MAX_RESPONSE_DELAY = 2000
-TARGETS= random.sample(list(range(100)), 100)
-TARGETS_PRACTICE = random.sample(list(range(100)), 10)
 LESSTHAN_RESPONSE = 'f'
 GREATERTHAN_RESPONSE = 'j'
 LESSTHAN_KEY = misc.constants.K_f
@@ -28,7 +26,7 @@ instructions = stimuli.TextScreen("Instructions",
 
     if it is greater than 55, press '{GREATERTHAN_RESPONSE}'
 
-    There will be {len(TARGETS)} trials in total.
+    There will be 234 trials in total.
 
     Press the space bar to start.""")
 instructions_practice= stimuli.TextScreen("Instructions",
@@ -71,24 +69,35 @@ for number in targets_prac:
 negative_feedback = stimuli.Audio(BUZZER)
 
 #prepare the experimental stimuli
-trials = []
-targets_exp= []
+trials_exp_list1 = []
+targets_exp_list1= []
 with open("df1_1.csv") as csvfile:
     reader = csv.reader(csvfile, quoting=csv.QUOTE_NONNUMERIC) # change contents to floats
     for row in reader: # each row is a list
-        targets_exp.append(row) 
+        targets_exp_list1.append(row) 
 
-for number in targets_exp:
+for number in targets_exp_list1:
         e = design.Trial()
         e.add_stimulus(stimuli.TextLine(str(math.trunc(number[0]))))
         e.set_factor('number', number[0])
         e.set_factor('is_greater', number[0] > 55 )
-        trials.append(e)
+        trials_exp_list1.append(e)
 
 
+trials_exp_list2 = []
 
+for number in targets_exp_list1[::-1]:
+        e = design.Trial()
+        e.add_stimulus(stimuli.TextLine(str(math.trunc(number[0]))))
+        e.set_factor('number', number[0])
+        e.set_factor('is_greater', number[0] > 55 )
+        trials_exp_list2.append(e)
+
+exp.add_bws_factor('list', ['list1', 'list2'])
 exp.add_data_variable_names(['number', 'respkey', 'RT', 'is_correct'])
 
+
+#start experiment
 control.start(skip_ready_screen=True)
 instructions.present()
 exp.keyboard.wait()
@@ -107,12 +116,18 @@ for example in practice:
 
 instructions_start_experiment.present()
 exp.keyboard.wait()
-
-for example in trials:
-    blankscreen.present()
-    exp.clock.wait(2000)
-    example.stimuli[0].present()
-    key, rt = exp.keyboard.wait([LESSTHAN_KEY, GREATERTHAN_KEY], duration=MAX_RESPONSE_DELAY)
+if exp.subject % 2 == 0:
+    for example in trials_exp_list2:
+        blankscreen.present()
+        exp.clock.wait(2000)
+        example.stimuli[0].present()
+        key, rt = exp.keyboard.wait([LESSTHAN_KEY, GREATERTHAN_KEY], duration=MAX_RESPONSE_DELAY)
+else:
+    for example in trials_exp_list2:
+        blankscreen.present()
+        exp.clock.wait(2000)
+        example.stimuli[0].present()
+        key, rt = exp.keyboard.wait([LESSTHAN_KEY, GREATERTHAN_KEY], duration=MAX_RESPONSE_DELAY)
 
 
 control.end()
