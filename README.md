@@ -27,11 +27,11 @@ We then created a second trial list that reversed the order of the first, as Deh
 We included a practice session with ten stimuli that includes a feedback via a buzzer. The practice session is followed by the experimental session with the list order determined by the parity of subject number. The experiment can be run by simply entering "python distanceeffect.py" in to your terminal.
 
 # Results & Analysis
-After each run of ````distanceeffect.py````, a file (with extension .xpd) was created in the subfolder named data. We completed all basic analyses in R using the code found [here](https://github.com/kvanvoor/PCBS_Project/blob/main/Data_Analysis_PCBS_Project.R).
+After each run of ````distanceeffect.py````, a file (with extension .xpd) was created in the subfolder named data. We completed all basic analyses in R using `````Data_Analysis_PCBS_Project.R``` found [here](https://github.com/kvanvoor/PCBS_Project/blob/main/Data_Analysis_PCBS_Project.R).
 
 We set out to generate a simple plot inspired by the Figure 1 in the Dehaene et al. (1990) paper. Recall that our aim was to complete a true replication of their Experiment 1. We used the R function ````read.expyriment.data```` to process all the data directly in R, since we were more familiar with R and had limited time. We then used the tidyr package to clean the data by removing incorrect answers labelled True or False in the ````is_correct````. We created a ````ggplot```` of boxplots of RTs for each number stimuli.
 
-Because of limited time, we only completed one full run of the experiment. This likely accounts for the wide box plots and outliers in our plot. Although we cannot conclude anything from this plot, and it is rather messy, we would expect to find that over many runs, we could replicate the Dehaene et al. Experiment 1 results relatively reliably using our ````distanceeffect.py````
+Because of limited time, we only completed one full run of the experiment. This likely accounts for the wide box plots and outliers in our plot. Although we cannot conclude anything from this plot (indeed, it is rather messy), we expect to find that over the course of many runs, we would be able to replicate the Dehaene et al. Experiment 1 results reliably using our ````distanceeffect.py````. 
 
 ![Fig. 1](RplotPCBS_Project.png)
 
