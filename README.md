@@ -35,7 +35,6 @@ Although I was already familiar with the problem-solving thinking involved in co
 
 I found learning the expyriment module in particular rather difficult. I relied heavily on the examples provided on github, but I was shocked to find very few resources online, especially discussing this particular module. This made it hard to problem solve on my own. In the future, I think it would have been very helpful to be more explicit in the various parts of expyriment and how it works together, the levels of "Design", "Block", "Trial." As a novice coder it was very hard to navigate on my own. 
 
-I also wondered more about the selection of Expyriment, and the consideration of teaching other languages or modules compatible with online studies through Prolific or MTurk. I work in psycholinguistics, and have been coding experiments in PCIBex during COVID to post online for my stage. I suspect that I will continue to do so as crowd-sourcing online becomes increasingly prevelant in my field. This might be a useful consideration in the future. 
 
 # To Do
 
