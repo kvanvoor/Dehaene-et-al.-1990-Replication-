@@ -1,4 +1,5 @@
 ##Data analyses with no pre-processing in Python
+#Using function from Expyriment to import into R
 library(tidyverse)
 read.expyriment.data = function(folder, filename_pattern) 
 {
@@ -38,10 +39,15 @@ read.expyriment.data = function(folder, filename_pattern)
   data
 }
 
-
+#uploading data to R
 mydata <- read.expyriment.data("/Users/kiravanvoorhees/Desktop/PCBS/PCBS_Project/data", "distanceeffect")
-view(mydata)
+
+#begin data cleaning
+data1 <- mydata %>%
+  filter(is_correct =="True") %>%
+  select(number, RT)
 
 
-
-
+ggplot(data1,aes(number, y = RT)) +
+  geom_boxplot(aes(group = number))+
+  geom_vline(xintercept= 55, color="red")
