@@ -32,7 +32,7 @@ After each run of ````distanceeffect.py````, a file (with extension .xpd) was cr
 We set out to generate a simple plot inspired by the Figure 1 in the Dehaene et al. (1990) paper. Recall that our aim was to complete a true replication of their Experiment 1. We used the R function ````read.expyriment.data```` to process all the data directly in R, since we were more familiar with R and had limited time. We then used the tidyr package to clean the data by removing incorrect answers labelled True or False in the ````is_correct````. We created a ````ggplot```` of boxplots of RTs for each number stimuli.
 
 Because of limited time, we only completed one full run of the experiment. This likely accounts for the wide box plots and outliers in our plot. Although we cannot conclude anything from this plot (indeed, it is rather messy), we expect to find that over the course of many runs, we would be able to replicate the Dehaene et al. Experiment 1 results reliably using our ````distanceeffect.py````. 
-
+Our ````Data_Analysis_PCBS_Project.R```` is already suited to load and clean multiple runs of data from the outputted ````.xpd```` files. 
 ![Fig. 1](RplotPCBS_Project.png)
 
 # My python experience & what I learned
