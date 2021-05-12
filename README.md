@@ -50,7 +50,7 @@ I found learning the expyriment module in particular rather difficult. I relied 
 ## To Do
 * I would have liked to implement functions that would repeate the generating of trials, rather than repeating these for loops every time. Given the limited time, I chose to prioritize trying to analyze a bit of the data. 
 
-* Evidemment, I would have liked to analysed more than 1 run of the experiment as well. 
+* Evidemment, I would have liked to have analysed more than 1 run of the experiment as well. 
 
 
 ## References
