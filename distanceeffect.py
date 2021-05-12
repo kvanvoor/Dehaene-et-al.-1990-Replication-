@@ -1,6 +1,6 @@
 #Kira Van Voorhees
 ''''This script runs an expyriment that instructs the particpants to indicate whether a number presented 
-is greater than or less than 55. It measures how long the participant takes to repspond by pressing 
+is greater than or less than 55. It measures how long the participant takes to respond by pressing 
 'f' or 'j' for 'less than' or 'greater than' respectively.
 '''
 
@@ -49,7 +49,6 @@ instructions_start_experiment= stimuli.TextScreen("Instructions",
 # prepare the practice stimuli
 
 practice = []
-
 targets_prac= []
 with open("stimuli_prac_list.csv") as csvfile:
     reader = csv.reader(csvfile, quoting=csv.QUOTE_NONNUMERIC) # change contents to floats
@@ -110,6 +109,7 @@ for example in practice:
             negative_feedback.play()
 
 instructions_start_experiment.present()
+
 exp.keyboard.wait()
 if exp.subject % 2 == 0:
     for example in trials_exp_list1:
