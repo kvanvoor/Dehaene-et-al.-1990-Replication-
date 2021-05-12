@@ -24,7 +24,7 @@ We then created a second list that reversed the order of the first, as Dehaene e
 
 # Running the experiment
 
-We included a practice session with ten stimuli that includes a feedback via a buzzer. The practice session is followed by the experimental session with the list determined by the parity of subject number.
+We included a practice session with ten stimuli that includes a feedback via a buzzer. The practice session is followed by the experimental session with the list determined by the parity of subject number. The experiment can be run by simply entering "python distanceeffect.py" in to your terminal.
 
 
 # My python experience & what I learned
