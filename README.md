@@ -20,13 +20,18 @@ To generate a list of numbers we use a simple [R code](https://github.com/kvanvo
 
 Next, we randomly shuffled the list in excel. We then manually ensured that the list adhered to the parameters described above, used by Dehaene et al.
 
-We then created a second list that reversed the order of the first, as Dehaene et al. did.
+We then created a second trial list that reversed the order of the first, as Dehaene et al. did.
 
 # Running the experiment
 
-We included a practice session with ten stimuli that includes a feedback via a buzzer. The practice session is followed by the experimental session with the list determined by the parity of subject number. The experiment can be run by simply entering "python distanceeffect.py" in to your terminal.
+We included a practice session with ten stimuli that includes a feedback via a buzzer. The practice session is followed by the experimental session with the list order determined by the parity of subject number. The experiment can be run by simply entering "python distanceeffect.py" in to your terminal.
 
+# Results & Analysis
 
+We generated a plot inspired by the Figure 1 in the Dehaen et al. (1990) paper. We used the R function to process all the data directly in R, since we were more familiar with R data analyses and had limited time. We then used the tidyr packages to clean the data, which fortunately were already very readable and then created a graphic of boxplots of RTs for each number stimuli.
+
+![](RplotPCBS_Project.png)
+Fig. 1
 # My python experience & what I learned
 
 My previous coding experience was limited almost exclusively to R. I am relatively proficient in basic R plots and statistical analyses from past statistics courses. I was briefly exposed to python through the DataCamp online course last semester, but retained very little knowledge.
@@ -38,6 +43,7 @@ I found learning the expyriment module in particular rather difficult. I relied 
 
 # To Do
 I would have liked to implement functions that would repeate the generating of trials, rather than repeating these for loops every time. Given the limited time, I chose to prioritize trying to analyze a bit of the data. 
+
 
 References
 ----------
