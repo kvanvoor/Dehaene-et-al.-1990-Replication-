@@ -5,10 +5,10 @@ is greater than or less than 55. It measures how long the participant takes to r
 '''
 
 import random
+from random import sample
 import math
 import csv
 from csv import reader
-from random import sample
 from expyriment import design, control, stimuli, misc
 
 MAX_RESPONSE_DELAY = 2000
