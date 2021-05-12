@@ -12,12 +12,12 @@ The stimuli were two pseudo-randomized lists which we created using R and manual
   * there were not three consecutive numbers greater than 55 or less than 55 presented.
   * there were never two of the same numbers presented consecutively,
 
-As in Dehaene et al. (1990), we were concerned with measuring the response times of the participant during each trial. 
+As in Dehaene et al. (1990), we measured the response times of the participant during each trial. 
 
 
 **Table of Contents**
 
-- [Preparation of the stimuli](#preparation of the stimuli)
+- [Preparation of the stimuli](## Preparation of the stimuli)
 - [Running the experiment](#running the experiment)
 - [Results & analysis](#Results & analysis)
 - [My python experience & what I learned](#My python experience & what I learned)
@@ -59,8 +59,8 @@ I found learning the expyriment module in particular rather difficult. I relied 
 * Evidemment, I would have liked to analysed more than 1 run of the experiment as well. 
 
 
-References
-----------
+## References
+
 Dehaene, S., Dupoux, E., & Mehler, J. (1990). Is numerical comparison digital? Analogical and symbolic effects in two-digit number comparison. Journal of experimental Psychology: Human Perception and performance, 16(3), 626.
 
 
