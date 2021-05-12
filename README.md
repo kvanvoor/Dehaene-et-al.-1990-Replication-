@@ -35,6 +35,7 @@ We used the R function ````read.expyriment.data```` to process all the data dire
 
 Because of limited time, we only completed one full run of the experiment. This likely accounts for the wide box plots and outliers in our plot. Although we cannot conclude anything from this plot (indeed, it is rather messy), we expect to find that over the course of many runs, we would be able to replicate the Dehaene et al. Experiment 1 results reliably using our ````distanceeffect.py````. 
 Our ````Data_Analysis_PCBS_Project.R```` is already suited to load and clean multiple runs of data from the outputted ````.xpd```` files. 
+
 ![Fig. 1](RplotPCBS_Project.png)
 
 ## My python experience & what I learned
