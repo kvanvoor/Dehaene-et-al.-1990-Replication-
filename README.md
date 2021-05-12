@@ -21,7 +21,7 @@ Next, we randomly shuffled the list in excel. We then manually ensured that the 
 
 We then created a second trial list that reversed the order of the first, as Dehaene et al. did. Half the particpants would recieve the list normally or in reversed order. 
 
-Every participant received the same practice stimuli, which we manually selected and entered in to an excel [sheet] (https://github.com/kvanvoor/PCBS_Project/blob/main/stimuli_prac_list.csv). 
+Every participant received the same practice stimuli, which we manually selected and entered in to an excel [sheet](https://github.com/kvanvoor/PCBS_Project/blob/main/stimuli_prac_list.csv). 
 
 ## Running the experiment
 
