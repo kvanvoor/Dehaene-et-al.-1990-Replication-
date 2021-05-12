@@ -117,13 +117,20 @@ if exp.subject % 2 == 0:
         exp.clock.wait(2000)
         example.stimuli[0].present()
         key, rt = exp.keyboard.wait([LESSTHAN_KEY, GREATERTHAN_KEY], duration=MAX_RESPONSE_DELAY)
+        is_correct_answer=(example.get_factor('is_greater') and key == GREATERTHAN_KEY) or \
+                    (not example.get_factor('is_greater') and key ==  LESSTHAN_KEY)
+        exp.data.add([example, key,
+                  rt, is_correct_answer])
 else:
     for example in trials_exp_list2:
         blankscreen.present()
         exp.clock.wait(2000)
         example.stimuli[0].present()
         key, rt = exp.keyboard.wait([LESSTHAN_KEY, GREATERTHAN_KEY], duration=MAX_RESPONSE_DELAY)
-
+        is_correct_answer=(example.get_factor('is_greater') and key == GREATERTHAN_KEY) or \
+                    (not example.get_factor('is_greater') and key ==  LESSTHAN_KEY)
+        exp.data.add([example, key,
+                  rt, is_correct_answer])
 
 control.end()
 
