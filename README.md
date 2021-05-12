@@ -30,8 +30,8 @@ We included a practice session with ten stimuli that includes a feedback via a b
 
 We generated a plot inspired by the Figure 1 in the Dehaen et al. (1990) paper. We used the R function to process all the data directly in R, since we were more familiar with R data analyses and had limited time. We then used the tidyr packages to clean the data, which fortunately were already very readable and then created a graphic of boxplots of RTs for each number stimuli.
 
-![](RplotPCBS_Project.png)
-Fig. 1
+![Fig. 1](RplotPCBS_Project.png)
+
 # My python experience & what I learned
 
 My previous coding experience was limited almost exclusively to R. I am relatively proficient in basic R plots and statistical analyses from past statistics courses. I was briefly exposed to python through the DataCamp online course last semester, but retained very little knowledge.
