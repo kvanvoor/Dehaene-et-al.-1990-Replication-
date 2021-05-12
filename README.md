@@ -37,8 +37,8 @@ I found learning the expyriment module in particular rather difficult. I relied 
 
 
 # To Do
-
-I really had intended to analyze the data through this project, but was not able to because I could not successfully transfer the events data into csv file which could then be inputted into R. Given my limited experience in python, this was not feasible within the time frame allotted. However, I do not think this would have been as useful for me anyways, since I already know a bit of R.
+(1) I would have liked to implement a function to generate the practice trials, list1 trials and list2 trials. I think this would have been a shorter and cleaner code. 
+(2) I really had intended to analyze the data through this project, but was not able to because I could not successfully transfer the events data into csv file which could then be inputted into R. Given my limited experience in python, this was not feasible within the time frame allotted. However, I do not think this would have been as useful for me anyways, since I already know a bit of R.
 
 References
 ----------
