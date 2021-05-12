@@ -1,5 +1,8 @@
 #Kira Van Voorhees
-#
+''''This script runs an expyriment that instructs the particpants to indicate whether a number presented 
+is greater than or less than 55. It measures how long the participant takes to repspond by pressing 
+'f' or 'j' for 'less than' or 'greater than' respectively.
+'''
 
 import random
 import math
@@ -30,13 +33,7 @@ instructions = stimuli.TextScreen("Instructions",
 
     Press the space bar to start.""")
 instructions_practice= stimuli.TextScreen("Instructions",
-    f"""When you see a number, your task is to decide, as quickly as possible, whether it is greater than or less than 55.
-
-    if it is less than 55, press '{LESSTHAN_RESPONSE}'
-
-    if it is greater than 55, press '{GREATERTHAN_RESPONSE}'
-
-    First, you will begin a short practice session with feedback.
+    f""" First, you will begin a short practice session with feedback.
 
     Press the space bar to start practicing.""")
 instructions_start_experiment= stimuli.TextScreen("Instructions",
@@ -68,10 +65,10 @@ for number in targets_prac:
 
 negative_feedback = stimuli.Audio(BUZZER)
 
-#prepare the experimental stimuli
+#prepare the experimental stimuli list 1
 trials_exp_list1 = []
 targets_exp_list1= []
-with open("df1_1.csv") as csvfile:
+with open("stimuli_list.csv") as csvfile:
     reader = csv.reader(csvfile, quoting=csv.QUOTE_NONNUMERIC) # change contents to floats
     for row in reader: # each row is a list
         targets_exp_list1.append(row) 
@@ -83,9 +80,8 @@ for number in targets_exp_list1:
         e.set_factor('is_greater', number[0] > 55 )
         trials_exp_list1.append(e)
 
-
+#prepare the experimental stimuli list2, by reversing list1
 trials_exp_list2 = []
-
 for number in targets_exp_list1[::-1]:
         e = design.Trial()
         e.add_stimulus(stimuli.TextLine(str(math.trunc(number[0]))))
@@ -93,7 +89,6 @@ for number in targets_exp_list1[::-1]:
         e.set_factor('is_greater', number[0] > 55 )
         trials_exp_list2.append(e)
 
-exp.add_bws_factor('list', ['list1', 'list2'])
 exp.add_data_variable_names(['number', 'respkey', 'RT', 'is_correct'])
 
 
